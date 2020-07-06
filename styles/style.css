@@ -1,0 +1,96 @@
+html {
+  font-size: 100px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 7.32vw;
+  }
+}
+
+body {
+  color: #222222;
+  font-size: 0.16rem;
+  font-family: sans-serif;
+  line-height: 1.8;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.hero {
+  background-image: url(../img/cafe.jpg);
+  background-position: center;
+  background-size: cover;
+  background-color: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+}
+
+.hero::after {
+  content: url(../img/arrow.svg);
+  display: block;
+  width: 0.16rem;
+  padding: 0.18rem 0.15rem 0.1rem;
+  border-radius: 50% 50% 0 0;
+  background-color: #ffffff;
+  line-height: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    justify-content: flex-end;
+  }
+  .hero::after {
+    width: 0.31rem;
+    padding: 0.35rem 0.31rem 0.16rem;
+  }
+  .hero h1 {
+    width: 50%;
+  }
+}
+
+html,
+body,
+.hero {
+  height: 100%;
+}
+
+body {
+  overflow-y: scroll;
+}
+/*# sourceMappingURL=style.css.map */

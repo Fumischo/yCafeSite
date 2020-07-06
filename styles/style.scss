@@ -1,0 +1,61 @@
+$primary: #ff953a;
+$darkgray: #222222;
+$midgray: #414141;
+$gray: #888888;
+$white: #ffffff;
+$text: 0.16rem;
+$side: 6vw;
+
+@mixin flex($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@import "global";
+
+.hero {
+  background: {
+    image: url(../img/cafe.jpg);
+    position: center;
+    size: cover;
+    color: $darkgray;
+  }
+  @include flex(center, center, row);
+  position: relative;
+  &::after {
+    content: url(../img/arrow.svg);
+    display: block;
+    width: $text;
+    padding: 0.18rem 0.15rem 0.1rem;
+    border-radius: 50% 50% 0 0;
+    background-color: $white;
+    line-height: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+    &::after {
+      width: 0.31rem;
+      padding: 0.35rem 0.31rem 0.16rem;
+    }
+    h1 {
+      width: 50%;
+    }
+  }
+}
+
+html,
+body,
+.hero {
+  height: 100%;
+}
+
+body {
+  overflow-y: scroll;
+}
