@@ -103,6 +103,10 @@ body,
   height: 100%;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 /*ヘッダー*/
 .header {
   position: absolute;
@@ -236,5 +240,113 @@ body,
   .nav ul li:not(:first-child) {
     margin-left: 0.55rem;
   }
+}
+
+/*----------------コンテンツ---------------*/
+/* コンテナ */
+.container {
+  padding: 0.68rem 6vw;
+}
+
+@media (min-width: 768px) {
+  .container.menu, .container.news {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .container h2 {
+    font-size: 0.42rem;
+  }
+  .container.hours h2 {
+    font-size: 0.32rem;
+  }
+  .container.menu h2 + p,
+  .container.news h2 + p,
+  .container.hours h2 + p {
+    font-size: 0.2rem;
+  }
+  .container.menu h2::after,
+  .container.news h2::after {
+    width: 0.85rem;
+    margin-top: 0.23rem;
+    margin-bottom: 0.14rem;
+  }
+}
+
+.container h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.26rem;
+  letter-spacing: 0.179em;
+  line-height: 1;
+}
+
+.container.hours h2 {
+  letter-spacing: 0;
+}
+
+.container.info h2 img {
+  width: 2.44rem;
+}
+
+.container.menu h2 + p,
+.container.news h2 + p,
+.container.hours h2 + p {
+  font-size: 0.13rem;
+}
+
+.container.info h2 + p {
+  color: #414141;
+  font-weight: bold;
+  letter-spacing: 0.516em;
+}
+
+.container.menu h2::after,
+.container.news h2::after,
+.container.hours h2::after {
+  content: "";
+  display: block;
+  width: 0.56rem;
+  height: 4px;
+  margin-top: 0.17rem;
+  margin-bottom: 0.1rem;
+  background-color: #ff953a;
+}
+
+.container.hours h2::after {
+  width: 0.28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Food & Drink*/
+/*What's New */
+.news {
+  background-image: url(../img/texture.jpg);
+  background-repeat: repeat;
+}
+
+/* Hours */
+.hours {
+  background-image: url(../img/shop.jpg);
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* カフェ情報 */
+.info {
+  background-color: #ff953a;
+  text-align: center;
+}
+
+/* フッター */
+.footer {
+  height: 89px;
+  background-color: #222222;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 /*# sourceMappingURL=style.css.map */

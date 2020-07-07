@@ -5,6 +5,7 @@ $gray: #888888;
 $white: #ffffff;
 $text: 0.16rem;
 $side: 6vw;
+$font: "Montserrat", sans-serif;
 
 @mixin flex($justify, $align, $direction) {
   display: flex;
@@ -70,7 +71,7 @@ body,
 }
 
 body {
-  // overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 /*ヘッダー*/
@@ -179,22 +180,133 @@ body {
 }
 
 /*ナビゲーションメニュー(PC)*/
-  @media (min-width: 768px) {
-    .nav-button {
-      display: none;
-    }
-    .nav {
-      position: relative;
-      left: auto;
-      width: auto;
-      height: auto;
-      ul {
-        display: flex;
-        list-style: none;
-        color: $white;
-        li:not(:first-child) {
-          margin-left: 0.55rem;
-        }
+@media (min-width: 768px) {
+  .nav-button {
+    display: none;
+  }
+  .nav {
+    position: relative;
+    left: auto;
+    width: auto;
+    height: auto;
+    ul {
+      display: flex;
+      list-style: none;
+      color: $white;
+      li:not(:first-child) {
+        margin-left: 0.55rem;
       }
     }
   }
+}
+
+/*----------------コンテンツ---------------*/
+
+/* コンテナ */
+.container {
+  padding: 0.68rem $side;
+  @media (min-width: 768px) {
+    &.menu,
+    &.news {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    h2 {
+      font-size: 0.42rem;
+    }
+    &.hours h2 {
+      font-size: 0.32rem;
+    }
+    &.menu h2,
+    &.news h2,
+    &.hours h2 {
+      + p {
+        font-size: 0.2rem;
+      }
+    }
+    &.menu h2,
+    &.news h2 {
+      &::after {
+        width: 0.85rem;
+        margin-top: 0.23rem;
+        margin-bottom: 0.14rem;
+      }
+    }
+  }
+  h2 {
+    font-family: $font;
+    font-size: 0.26rem;
+    letter-spacing: 0.179em;
+    line-height: 1;
+  }
+  &.hours h2 {
+    letter-spacing: 0;
+  }
+  &.info h2 img {
+    width: 2.44rem;
+  }
+  &.menu h2,
+  &.news h2,
+  &.hours h2 {
+    + p {
+      font-size: 0.13rem;
+    }
+  }
+  &.info h2 + p {
+    color: $midgray;
+    font-weight: bold;
+    letter-spacing: 0.516em;
+  }
+  &.menu h2,
+  &.news h2,
+  &.hours h2 {
+    &::after {
+      content: "";
+      display: block;
+      width: 0.56rem;
+      height: 4px;
+      margin-top: 0.17rem;
+      margin-bottom: 0.1rem;
+      background-color: $primary;
+    }
+  }
+  &.hours h2::after {
+    width: 0.28rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Food & Drink*/
+
+/*What's New */
+.news {
+  background: {
+    image: url(../img/texture.jpg);
+    repeat: repeat;
+  }
+}
+
+/* Hours */
+.hours {
+  background: {
+    image: url(../img/shop.jpg);
+    position: center;
+    size: cover;
+  }
+  color: $white;
+  text-align: center;
+}
+
+/* カフェ情報 */
+.info {
+  background-color: $primary;
+  text-align: center;
+}
+
+/* フッター */
+.footer {
+  height: 89px;
+  background-color: $darkgray;
+  color: $white;
+  @include flex(center, center, row);
+}
