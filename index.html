@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width">
   <title>YAMACAFE ヤマカフェ</title>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
 
   <link rel="icon" href="img/favicon.png" type="image/png">
@@ -14,9 +14,29 @@
 </head>
 
 <body>
+  <header class="header">
+    <div class="site">
+      <img src="img/yamacafe-w.svg" alt="YAMACAFE ヤマカフェ">
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">こだわりメニュー</a></li>
+        <li><a href="#">お知らせ</a></li>
+        <li><a href="#">営業時間</a></li>
+      </ul>
+    </nav>
+
+    <type="button" class="nav-button" onClick = "navFunc()">
+      <span class="sr-only">MENU</span>
+    </button>
+  </header>
+
   <div class="hero">
     <h1><img src="img/catch.svg" alt="Take A Break"></h1>
   </div>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
