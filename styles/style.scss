@@ -205,6 +205,25 @@ body {
 /* コンテナ */
 .container {
   padding: 0.68rem $side;
+  h2 {
+    font-family: $font;
+    font-size: 0.26rem;
+    letter-spacing: 0.179em;
+    line-height: 1;
+  }
+  &.hours h2 {
+    letter-spacing: 0;
+  }
+  &.info h2 img {
+    width: 2.44rem;
+  }
+  &.menu h2,
+  &.news h2,
+  &.hours h2 {
+    + p {
+      font-size: 0.13rem;
+    }
+  }
   @media (min-width: 768px) {
     &.menu,
     &.news {
@@ -233,25 +252,6 @@ body {
       }
     }
   }
-  h2 {
-    font-family: $font;
-    font-size: 0.26rem;
-    letter-spacing: 0.179em;
-    line-height: 1;
-  }
-  &.hours h2 {
-    letter-spacing: 0;
-  }
-  &.info h2 img {
-    width: 2.44rem;
-  }
-  &.menu h2,
-  &.news h2,
-  &.hours h2 {
-    + p {
-      font-size: 0.13rem;
-    }
-  }
   &.info h2 + p {
     color: $midgray;
     font-weight: bold;
@@ -277,6 +277,260 @@ body {
   }
 }
 /* Food & Drink*/
+
+// Food & Drink: 基本
+.item {
+  margin-top: 0.64rem;
+  h3 {
+    margin-bottom:0.19rem;
+    color: $midgray;
+    font-size: 0.16rem;
+    line-height: 1;
+    @include flex(flex-start, center, row);
+    &::before {
+      content: url(../img/mark.svg);
+      display: block;
+      width: 0.4rem;
+      margin-right: 0.1rem;
+    }
+  }
+  p {
+    margin-bottom: 0.16rem;
+    font-size: 0.14rem;
+  }
+}
+
+// Food & Drink:テキストの横幅と配置
+.item {
+  &.text {
+    width: (285 / 375) * 100vw;
+  }
+  &.plate {
+    .text {
+      margin-left: auto;
+    }
+    h3 {
+      flex-direction: row-reverse;
+      &::before {
+        margin-left: 0.1rem;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// Food & Drink: 画像の横幅と配置
+.item {
+  .photo {
+    margin: 0 ($side * -1);
+    display: flex;
+    align-items: flex-end;
+  }
+  &.cafe {
+    .fig1 {
+      flex: 1 1 auto;
+      margin-right: -0.47rem;
+      margin-bottom: 0.38rem;
+    }
+    .fig2 {
+      flex: 0 0 round((160 / 375) * 100vw);
+      img {
+        height: 1.56rem;
+      }
+    }
+  }
+  &.plate .fig1 {
+    flex: 0 0 (321 / 375 * 100vw);
+  }
+  &.sweet {
+    .fig1 {
+      flex: 1 1 auto;
+      margin-right: -0.26rem;
+      margin-bottom: 0.38rem;
+    }
+    .fig2 {
+      flex: 0 0 56.2vw;
+    }
+    img {
+      height: 2rem;
+    }
+  }
+  img {
+    width: 100%;
+    max-height: 2rem;
+    object-fit: cover;
+  }
+  // PCレイアウト
+  @media (min-width: 768px) {
+    margin-top: 1rem;
+    h3 {
+      margin-bottom: 0.22rem;
+      font-size: 0.25rem;
+      &::before {
+        width: 0.48rem;
+      }
+    }
+    p {
+      font-size: 0.16rem;
+    }
+    // テキストと画像の配置
+    display: flex;
+    .text {
+      flex: 0 0 3.12rem;
+      margin-right: 0.49rem;
+    }
+    .photo {
+      flex: 1 1 auto;
+      margin: 0;
+    }
+    img {
+      max-height: none;
+    }
+    //テキストと画像の配置: カフェ 
+    &.cafe {
+      margin-left: $side * 2;
+      margin-right: $side * -1;
+      .fig1 {
+        margin-right: -0.88rem;
+        margin-bottom: 1.11rem;
+      }
+      .fig2 {
+        flex: 0 0 auto;
+        width: calc(6vw * 3 + 0.88rem);
+      }
+      .fig1 img {
+        height: 3.3rem;
+      }
+      .fig2 img {
+        height: 3rem;
+      }
+      .text {
+        align-self: flex-end;
+      }
+      p {
+        margin-bottom: 0.73rem;
+      }
+      h3 {
+        margin-left: -0.58rem;
+      }
+    }
+    //テキストと画像の配置: プレート
+    &.plate {
+      flex-direction: row-reverse;
+      margin-left: $side * -1;
+      margin-right: $side * 1;
+      .text {
+        margin-right: 0;
+        margin-left: 0.49rem;
+      }
+      .photo {
+        display: block;
+      }
+      .fig1 img{
+        height: 3.95rem;
+      }
+      h3 {
+        margin-right: -0.58rem;
+      }
+    }
+    //テキストと画像の配置: スイーツ 
+    &.sweet {
+      margin-left: $side * 2;
+      margin-right: $side * -1;
+      .fig1 {
+        margin: 0;
+      }
+      .fig2 {
+        flex: 0 0 4.69rem;
+      }
+      img {
+        height: 3.04rem;
+      }
+      h3 {
+        margin-left: -0.58rem;
+      }
+    }
+  }
+}
+
+// Food & Drink: イラスト
+.item {
+  .text {
+    position: relative;
+    z-index: 2
+  }
+  .photo {
+    position: relative;
+  }
+  &.cafe .photo::after {
+    content: url(../img/cafe.svg);
+    display: block;
+    width: 28vw;
+    position: absolute;
+    top: -12vw;
+    right: 12vw;
+    opacity: 0.8;
+  }
+  @media (min-width: 768px) {
+    &.cafe .photo::after {
+      width: 2rem;
+      top: auto;
+      right: auto;
+      bottom: 0.12rem;
+      left: -0.85rem;
+    }
+  }
+  &.plate .photo::after {
+    content: url(../img/plate.svg);
+    display: block;
+    width: 30vw;
+    position: absolute;
+    top: -14vw;
+    left: 1.3vw;
+    opacity: 0.8;
+  }
+  @media (min-width: 768px) {
+    &.plate .photo::after {
+      width: 2rem;
+      top: 1.21rem;
+      right: -1.48rem;
+      left: auto;
+    }
+  }
+  &.sweet .photo::after {
+    content: url(../img/sweet.svg);
+    display: block;
+    width: 32vw;
+    position: absolute;
+    top: -12vw;
+    right: 9vw;
+    opacity: 0.8;
+  }
+  @media (min-width: 768px) {
+    &.sweet .photo::after {
+      width: 2.27rem;
+      top: 1.11rem;
+      right: auto;
+      left: -1.68rem;
+    }
+  }
+}
+
+// Food & Drink: タイトル
+@media (min-width: 768px) {
+  .menu-inner {
+    position: relative;
+    .item.cafe {
+      margin-top: 0;
+    }
+    .menu-title {
+      position: absolute;
+      top: 0.13rem;
+      left: 0;
+    }
+  }
+}
+
 
 /*What's New */
 .news {
