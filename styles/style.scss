@@ -535,8 +535,60 @@ body {
 /*What's New */
 .news {
   background: {
-    image: url(../img/texture.jpg);
-    repeat: repeat;
+    image: url(../img/edge.png), url(../img/texture.jpg);
+    repeat: repeat-x, repeat;
+  }
+  dl {
+    margin-top: 0.35rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.14rem;
+  }
+  dt {
+    margin-bottom: 0.03rem;
+    font-weight: bold;
+    color: $gray;
+  }
+  dd {
+    margin-left: 0;
+  }
+  dd:not(:last-child) {
+    margin-bottom: 0.35rem;
+  }
+  .more {
+    font-weight: bold;
+    color: $primary;
+    @include flex(flex-end, center, row);
+    padding-top: 0.16rem;
+    border-top: solid 0.12rem currentColor;
+    text-align: right;
+    &::after {
+      content: url(../img/arrow.svg);
+      display: block;
+      margin-left: 0.11rem;
+      width: 0.18rem;
+      transform: rotate(-90deg);
+    }
+  }
+  @media (min-width: 768px) {
+    dl, .more {
+      margin-left: $side * 2;
+      margin-right: $side * 2;
+    }
+    dl {
+      font-size: 0.16rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    dt {
+      flex: 0 0 1.57rem;
+    }
+    dd {
+      flex: 0 0 auto;
+      width: calc(100% - 1.57rem);
+    }
+    dd:not(:last-child) {
+      margin-bottom: 0.08rem;
+    }
   }
 }
 
@@ -549,6 +601,44 @@ body {
   }
   color: $white;
   text-align: center;
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+  }
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    width: 2.16rem;
+    margin: 0.23rem auto 0;
+    text-align: left;
+    // IE11の指定がある為、下記の設定は使わない
+    // display: grid;
+    // grid-template-columns: auto auto;
+    // column-gap: 1em;
+    // justify-content: center;
+  }
+  dt {
+    flex: 0 0 4em;
+  }
+  dd {
+    flex: 0 0 auto;
+    width: calc(100% - 4em);
+    margin-left: 0;
+    // 文字数が増えた場合の設定
+    // white-space: nowrap;
+    // overflow: visible;
+  }
 }
 
 /* カフェ情報 */
